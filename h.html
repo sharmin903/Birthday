@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <title>Happy Birthday !! </title>
 </head>
+
 <body>
-    <div class="container max-w-full">
-        <h1 class="text-center text-4xl font-bold animate-bounce py-4">Happy Birthday!</h1>
-        <div class="cake">
+    <div class="w-full bg-gradient-to-b from-blue-200 to-blue-500 h-screen w-screen ">
+        <div class="text-center mb-10">
+            <h1 class="birthday-head text-6xl font-bold animate-bounce text-blue-800 z-10 relative -mt-40">Happy Birthday!</h1>
+        </div>
+        <div class="cake z-100 absolute left-1/2 top-1/2 ">
             <div class="candle animate-pulse">
                 <div class="flame animate-ping"></div>
             </div>
@@ -18,13 +22,13 @@
             <div class="layer-2 animate-bounce delay-200"></div>
             <div class="layer-3 animate-bounce delay-300"></div>
         </div>
-        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-        d="M12 4v16m8-8H4" />
-</svg>
+        <svg class="size-6 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
     </div>
 
-    
-<script src="main.js"></script>
+
+    <script src="main.js"></script>
 </body>
+
 </html>

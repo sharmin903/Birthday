@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.birthday-head{
+    padding: 80px;
+    animation: glow 2s infinite alternate;
+    text-shadow: 0 0 5px #6d92c5, 0 0 10px #749bd1, 0 0 20px #345eba, 0 0 40px #0300c9;
+    background: linear-gradient(to right,#ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: fadeInGlow 1s easy-in forward 1.5s, glow 2s easy-in-out infinite alternate 1.5s;
+    color: transparent;
+}
+
+@keyframes fadeInGlow{
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes glow{
+    from{
+        text-shadow: 0 0 5px #6d92c5, 0 0 10px #749bd1, 0 0 20px #345eba, 0 0 40px #0300c9;
+    }
+    to{
+        text-shadow: 0 0 10px #6d92c5, 0 0 20px #749bd1, 0 0 30px #345eba, 0 0 50px #0300c9;
+    }
+}
+.cake{
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translateX(50%);
+    animation: fall 2s easy-in forwards;
+}
