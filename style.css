@@ -178,3 +178,31 @@ body {
     opacity: 0.9;
   }
 }
+.swipe-hint{
+    height: 33px;
+    width: 260px;
+    bottom: 50px;
+    margin-top: 200px;
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
+    text-align: center;
+    font-weight: 400;
+    opacity: 0;
+    position: absolute;
+    animation: fadeInHint 1s ease-in forwards 3s, pluse 2s ease-in-out infinite 4s;
+}
+@keyframes fadeInHint {
+    to{
+        opacity: 0.8s;
+    }
+    
+}
+@keyframes pluse {
+    0%,100%{
+        opacity: 0.8s;
+    }
+    50%{
+        opacity: 0.4s;
+    }
+}
