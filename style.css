@@ -8,42 +8,45 @@ body {
 }
 
 .birthday-head {
-  padding: 80px;
-  animation: glow 2s infinite alternate;
-  text-shadow:
-    0 0 5px #6d92c5,
-    0 0 10px #749bd1,
-    0 0 20px #345eba,
-    0 0 40px #0300c9;
-  background: linear-gradient(to right, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation:
-    fadeInGlow 1s ease-in forwards 1.5s,
-    glow 2s ease-in-out infinite alternate 1.5s;
+    padding: 80px;
+    color:   #e7d7b5;
+   text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(255, 182, 193, 0.8),
+                0 0 40px rgba(255, 182, 193, 0.6),
+                0 0 50px rgba(255, 105, 180, 0.8),
+                0 0 60px rgba(255, 105, 180, 0.6);
+            background: linear-gradient(to right, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: fadeInGlow 1s ease-in forwards 1.5s, glow 2s ease-in-out infinite alternate 1.5s;
 }
 
 @keyframes fadeInGlow {
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes glow {
-  from {
-    text-shadow:
-      0 0 5px #6d92c5,
-      0 0 10px #749bd1,
-      0 0 20px #345eba,
-      0 0 40px #0300c9;
-  }
-  to {
-    text-shadow:
-      0 0 10px #6d92c5,
-      0 0 20px #749bd1,
-      0 0 30px #345eba,
-      0 0 50px #0300c9;
-  }
+    from {
+        text-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.9),
+            0 0 10px rgba(135, 206, 250, 0.8),
+            0 0 15px rgba(0, 191, 255, 0.6),
+            0 0 20px rgba(0, 150, 255, 0.4);
+    }
+    to {
+       text-shadow: 
+                    0 0 20px rgba(255, 255, 255, 1),
+                    0 0 30px rgba(255, 255, 255, 0.8),
+                    0 0 40px rgba(255, 182, 193, 1),
+                    0 0 50px rgba(255, 182, 193, 0.8),
+                    0 0 60px rgba(255, 105, 180, 1),
+                    0 0 70px rgba(255, 105, 180, 0.8),
+                    0 0 80px rgba(255, 105, 180, 0.6);
+    }
 }
 .cake {
   position: relative;
@@ -112,10 +115,10 @@ body {
   left: 0;
   right: 0;
   height: 10px;
-  background: radial-gradient(circle at 50% 0%, #eab3ec, #c542e5);
+  background: radial-gradient(circle at 50% 0%, #eab3ec, #e542bc);
   border-radius: 0 0 50% 50%;
   opacity: 0;
-  animation: creamDrip 0.5s ease-out forwards;
+  animation: creamDrip 0.8s ease-out forwards;
 }
 @keyframes creamDrip {
   0% {
@@ -179,14 +182,13 @@ body {
   }
 }
 .swipe-hint{
-    height: 33px;
-    width: 260px;
-    bottom: 50px;
-    margin-top: 200px;
+
+    margin-top: 150px;
     left: 50%;
     color: white;
     transform: translateX(-50%);
     text-align: center;
+    font-size: 22px;
     font-weight: 400;
     opacity: 0;
     position: absolute;
@@ -194,15 +196,15 @@ body {
 }
 @keyframes fadeInHint {
     to{
-        opacity: 0.8s;
+        opacity: 0.3;
     }
     
 }
 @keyframes pluse {
     0%,100%{
-        opacity: 0.8s;
+        opacity: 0.8;
     }
     50%{
-        opacity: 0.4s;
+        opacity: 0.4;
     }
 }
