@@ -12,7 +12,7 @@ function handleTouchStart(e){
     isSwiping=true;
 }
 function handleTouchMove(e){
-    if(isSwiping||hasSwapped)return;
+    if(!isSwiping||hasSwapped)return;
     currentX=e.touches[0].clientX;
     const diff=startX-currentX;
 
@@ -30,7 +30,11 @@ function handleTouchEnd(e){
         letterScreen.classList.add('show');
     }
     else{
-        cakeScreen.style.transform='tanslateX(0)';
+        cakeScreen.style.transform='translateX(0)';
     }
     isSwiping=false;
 }
+cakeScreen.addEventListener('touchstart',handleTouchStart);
+cakeScreen.addEventListener('touchstart', handleTouchStart);
+cakeScreen.addEventListener('touchmove', handleTouchMove);
+cakeScreen.addEventListener('touchend', handleTouchEnd);
