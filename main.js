@@ -8,7 +8,7 @@ const letterScreen=document.getElementById('letterScreen');
 
 function handleTouchStart(e){
     if(hasSwapped)return;
-    startX=e.touches[0].clientX;
+    startX=e.touches[0].clientX;//clientX (e.touches[0].clientX = horizontal position of finger)
     isSwiping=true;
 }
 function handleTouchMove(e){
@@ -19,6 +19,7 @@ function handleTouchMove(e){
     //only move if swiping left(position diff)
     if(diff>0){
         cakeScreen.style.transform = `translateX(-${diff}px)`
+        letterScreen.style.transform=`translateX(calc(100% -${diff}px))`;
     }
 }
 function handleTouchEnd(e){
@@ -31,10 +32,10 @@ function handleTouchEnd(e){
     }
     else{
         cakeScreen.style.transform='translateX(0)';
+        letterScreen.style.transform=`translateX(100%)`
     }
     isSwiping=false;
 }
-cakeScreen.addEventListener('touchstart',handleTouchStart);
 cakeScreen.addEventListener('touchstart', handleTouchStart);
 cakeScreen.addEventListener('touchmove', handleTouchMove);
 cakeScreen.addEventListener('touchend', handleTouchEnd);

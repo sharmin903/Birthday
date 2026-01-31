@@ -368,3 +368,26 @@ body {
   color: #667eea;
   font-weight: bold;
 }
+#letterScreen{
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 3s ease;
+}
+#letterScreen.show{
+  transform: translateX(-100%) !important;
+}
+#cakeScreen{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 3s ease;
+}
+#cakeScreen.swiped{
+  transform: translateX(-100%) !important;
+}
