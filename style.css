@@ -371,14 +371,14 @@ body {
 #letterScreen{
   position: fixed;
   top: 0;
-  left: 100%;
+  left: 0;
   width: 100%;
   height: 100%;
-  transform: translateX(0);
+  transform: translateX(100%);
   transition: transform 3s ease;
 }
 #letterScreen.show{
-  transform: translateX(-100%) !important;
+  transform: translateX(0) !important;
 }
 #cakeScreen{
   position: fixed;

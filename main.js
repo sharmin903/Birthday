@@ -19,7 +19,7 @@ function handleTouchMove(e){
     //only move if swiping left(position diff)
     if(diff>0){
         cakeScreen.style.transform = `translateX(-${diff}px)`
-        letterScreen.style.transform=`translateX(calc(100% -${diff}px))`;
+        letterScreen.style.transform=`translateX(calc(100% - ${diff}px))`;
     }
 }
 function handleTouchEnd(e){
@@ -27,6 +27,8 @@ function handleTouchEnd(e){
     const diff = startX-currentX;
     if(diff>100){
         hasSwapped=true;
+        cakeScreen.style.transform = '';
+        letterScreen.style.transform = '';
         cakeScreen.classList.add('swiped');
         letterScreen.classList.add('show');
     }
