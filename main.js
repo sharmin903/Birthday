@@ -84,3 +84,24 @@ backButton.addEventListener('click',function(){
     letterScreen.classList.remove('show');
     cakeScreen.style.transform = 'translateX(0)';
 })
+
+function creatConfetti(){
+    const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#655ce7', '#fd79a8'];
+
+    for(let i=0; i<100 ; i++){
+        setTimeout(()=> {
+            const confetti = document.createElement('div');
+            confetti.classList='confetti';
+
+            confetti.style.left= Math.random()*100+'%';
+            confetti.style.background=colors[Math.floor(Math.random()*colors.length)];
+            confetti.style.animationDelay= Math.random()*2+2+'s';
+            confetti.style.animationDuration = (Math.random()*2+2)+'s';
+            confetti.style.transform=`rotate(${Math.random()*360}deg)`;
+            document.body.appendChild(confetti);
+            setTimeout(()=>confetti.remove(),5000);
+        },i*50);
+    }
+}
+setTimeout(creatConfetti,2000);
+setInterval(creatConfetti,4000);
