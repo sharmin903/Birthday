@@ -38,6 +38,9 @@ function handleTouchEnd(e){
     }
     isSwiping=false;
 }
+cakeScreen.addEventListener('touchstart', handleTouchStart);
+cakeScreen.addEventListener('touchmove', handleTouchMove);
+cakeScreen.addEventListener('touchend', handleTouchEnd);
 function handleMouseDown(e){
     if(hasSwapped)return;
     startX=e.clientX;
@@ -68,10 +71,16 @@ function handleMouseUp(e){
     }
     isSwiping=false;
 }
-cakeScreen.addEventListener('touchstart', handleTouchStart);
-cakeScreen.addEventListener('touchmove', handleTouchMove);
-cakeScreen.addEventListener('touchend', handleTouchEnd);
 
 cakeScreen.addEventListener('mousedown',handleMouseDown);
 cakeScreen.addEventListener('mousemove',handleMouseMove);
 cakeScreen.addEventListener('mouseup',handleMouseUp);
+
+const backButton=document.getElementById('backButton')
+
+backButton.addEventListener('click',function(){
+    hasSwapped=false;
+    cakeScreen.classList.remove('swiped');
+    letterScreen.classList.remove('show');
+    cakeScreen.style.transform = 'translateX(0)';
+})
