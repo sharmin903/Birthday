@@ -88,7 +88,7 @@ backButton.addEventListener('click',function(){
 function creatConfetti(){
     const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#655ce7', '#fd79a8'];
 
-    for(let i=0; i<100 ; i++){
+    for(let i=0; i<180 ; i++){
         setTimeout(()=> {
             const confetti = document.createElement('div');
             confetti.classList='confetti';
