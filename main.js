@@ -105,3 +105,22 @@ function creatConfetti(){
 }
 setTimeout(creatConfetti,2000);
 setInterval(creatConfetti,4000);
+
+function creatBalloonPair(){
+    const colors= ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#a29bfe', '#fd79a8'];
+    const balloonCount= 5;
+    for (let i= 0; i<bulloonCount;i++){
+        setTimeout(()=>{
+            const balloon=document.createElement('div');
+            balloon.className= 'ballon ballon-left';
+            balloon.style.background=colors[Math.floor(Math.random() * colors.length)];
+            balloon.style,StyleProperty('--start-left',(20+i*15)+'px');
+            balloon.style.animationDelay= (i*0.2)+'s';
+
+            document.body.appandchild(balloon);
+
+            setTimeout(()=>balloon.remove(),4000);
+
+        },i*100);
+    }
+}
