@@ -419,9 +419,60 @@ body {
     }
 }
 .balloon{
-  
-  width: 30px;
-  height: 40px;
+  position: fixed;
+  width: 60px;
+  height: 90px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   color: #e542bc;
+  bottom: -50px;
+  z-index: 100;
+}
+.balloon::before{
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  left:50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+
+}
+.balloon-left{
+  animation: balloonFlyLeft 3s ease-out forwards;
+}
+.balloon-right{
+  animation: balloonFlyRight 3s ease-out forwards;
+}
+@keyframes balloonFlyLeft {
+  0% {
+    bottom: 0;
+    left: var(--start-left);
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+  100%{
+    bottom: 120vh;
+    left: calc(var(--start-left)-200px);
+    opacity: 0;
+    transform: translateX(-50px) rotate(-20deg);
+
+  }
+  
+}
+@keyframes balloonFlyRight {
+  0%{
+    opacity: 1;
+    right: var(--start-right);
+    bottom: 0;
+    transform: translateX(0) rotate(0deg);
+  }
+  100%{
+    bottom: 120vh;
+    right: calc(var(--start-right)-200px);
+    opacity: 0;
+    transform: translateX(50px) rotate(20deg);
+  }
+  
 }

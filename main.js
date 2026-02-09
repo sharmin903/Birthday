@@ -76,14 +76,17 @@ cakeScreen.addEventListener('mousedown',handleMouseDown);
 cakeScreen.addEventListener('mousemove',handleMouseMove);
 cakeScreen.addEventListener('mouseup',handleMouseUp);
 
-const backButton=document.getElementById('backButton')
+const backButton = document.querySelector('.back-button');
 
-backButton.addEventListener('click',function(){
-    hasSwapped=false;
-    cakeScreen.classList.remove('swiped');
-    letterScreen.classList.remove('show');
-    cakeScreen.style.transform = 'translateX(0)';
-})
+if (backButton) { 
+    backButton.addEventListener('click', function() {
+        hasSwapped = false;
+        cakeScreen.classList.remove('swiped');
+        letterScreen.classList.remove('show');
+        cakeScreen.style.transform = 'translateX(0)';
+        letterScreen.style.transform = 'translateX(100%)';  
+    });
+}
 
 function creatConfetti(){
     const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#655ce7', '#fd79a8'];
@@ -106,21 +109,36 @@ function creatConfetti(){
 setTimeout(creatConfetti,2000);
 setInterval(creatConfetti,4000);
 
-function creatBalloonPair(){
+function createBalloonPair(){
     const colors= ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#a29bfe', '#fd79a8'];
     const balloonCount= 5;
-    for (let i= 0; i<bulloonCount;i++){
+    for (let i= 0; i<balloonCount;i++){
         setTimeout(()=>{
             const balloon=document.createElement('div');
-            balloon.className= 'ballon ballon-left';
+            balloon.className= 'balloon balloon-left';
             balloon.style.background=colors[Math.floor(Math.random() * colors.length)];
-            balloon.style,StyleProperty('--start-left',(20+i*15)+'px');
+            balloon.style.StyleProperty('--start-left',(20+i * 15)+'px');
             balloon.style.animationDelay= (i*0.2)+'s';
 
-            document.body.appandchild(balloon);
+            document.body.appendChild(balloon);
+
+            setTimeout(()=>balloon.remove(),4000);
+
+        },i*100);
+    }
+    for(let i =0; i<balloonCount;i++){
+        setTimeout(()=>{
+            const balloon = document.createElement('div');
+            balloon.className='balloon balloon-right';
+            balloon.style.background =colors[Math.floor(Math.random() * colors.length)];
+            balloon.style.setProperty('--start-right',(20+i*15)+'px');
+            balloon.style.animationDelay= (i*0.2)+'s';
+
+            document.body.appendChild(balloon);
 
             setTimeout(()=>balloon.remove(),4000);
 
         },i*100);
     }
 }
+window.addEventListener('load',createBalloonPair);
