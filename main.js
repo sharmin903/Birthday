@@ -123,7 +123,7 @@ function createBalloonPair() {
         'linear-gradient(135deg, #ff9a9e 0%, #7b0054 100%)'
     ];
     
-    const balloonCount = 10;  // Increased to 6 balloons per side
+    const balloonCount = 10; 
     
     // LEFT side balloons
     for (let i = 0; i < balloonCount; i++) {
@@ -135,12 +135,12 @@ function createBalloonPair() {
             balloon.style.animationDelay = (i * 1.15) + 's';
             
             // Random size variation
-            const size = 0.8 + Math.random() * 0.4;  // 0.8 to 1.2
+            const size = 0.8 + Math.random() * 0.4;
             balloon.style.transform = `scale(${size})`;
             
             document.body.appendChild(balloon);
             
-            setTimeout(() => balloon.remove(), 5000);
+            setTimeout(() => balloon.remove(), 7000);
         }, i * 150);
     }
     
@@ -151,7 +151,7 @@ function createBalloonPair() {
             balloon.className = 'balloon balloon-right';
             balloon.style.background = gradients[Math.floor(Math.random() * gradients.length)];
             balloon.style.setProperty('--start-right', (30 + i * 30) + 'px');
-            balloon.style.animationDelay = (i * 1.15) + 's';
+            balloon.style.animationDelay = (i * 1.19) + 's';
             
             // Random size variation
             const size = 0.8 + Math.random() * 0.4;
@@ -159,7 +159,7 @@ function createBalloonPair() {
             
             document.body.appendChild(balloon);
             
-            setTimeout(() => balloon.remove(), 5000);
+            setTimeout(() => balloon.remove(), 7000);
         }, i * 150);
     }
 }
