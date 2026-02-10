@@ -1,3 +1,4 @@
+
 let startX=0;
 let currentX=0;
 let isSwiping=false;
@@ -109,36 +110,58 @@ function creatConfetti(){
 setTimeout(creatConfetti,2000);
 setInterval(creatConfetti,4000);
 
-function createBalloonPair(){
-    const colors= ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#a29bfe', '#fd79a8'];
-    const balloonCount= 5;
-    for (let i= 0; i<balloonCount;i++){
-        setTimeout(()=>{
-            const balloon=document.createElement('div');
-            balloon.className= 'balloon balloon-left';
-            balloon.style.background=colors[Math.floor(Math.random() * colors.length)];
-            balloon.style.StyleProperty('--start-left',(20+i * 15)+'px');
-            balloon.style.animationDelay= (i*0.2)+'s';
-
-            document.body.appendChild(balloon);
-
-            setTimeout(()=>balloon.remove(),4000);
-
-        },i*100);
-    }
-    for(let i =0; i<balloonCount;i++){
-        setTimeout(()=>{
+function createBalloonPair() {
+    // Gradient colors for prettier balloons
+    const gradients = [
+        'linear-gradient(135deg, #667eea 0%, #7f2bd4 100%)',
+        'linear-gradient(135deg, #f093fb 0%, #b01d31 100%)',
+        'linear-gradient(135deg, #4facfe 0%, #00878f 100%)',
+        'linear-gradient(135deg, #43e97b 0%, #006e5a 100%)',
+        'linear-gradient(135deg, #fa709a 0%, #aa9103 100%)',
+        'linear-gradient(135deg, #30cfd0 0%, #250053 100%)',
+        'linear-gradient(135deg, #a8edea 0%, #7e062c 100%)',
+        'linear-gradient(135deg, #ff9a9e 0%, #7b0054 100%)'
+    ];
+    
+    const balloonCount = 10;  // Increased to 6 balloons per side
+    
+    // LEFT side balloons
+    for (let i = 0; i < balloonCount; i++) {
+        setTimeout(() => {
             const balloon = document.createElement('div');
-            balloon.className='balloon balloon-right';
-            balloon.style.background =colors[Math.floor(Math.random() * colors.length)];
-            balloon.style.setProperty('--start-right',(20+i*15)+'px');
-            balloon.style.animationDelay= (i*0.2)+'s';
-
+            balloon.className = 'balloon balloon-left';
+            balloon.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+            balloon.style.setProperty('--start-left', (30 + i * 30) + 'px');
+            balloon.style.animationDelay = (i * 1.15) + 's';
+            
+            // Random size variation
+            const size = 0.8 + Math.random() * 0.4;  // 0.8 to 1.2
+            balloon.style.transform = `scale(${size})`;
+            
             document.body.appendChild(balloon);
-
-            setTimeout(()=>balloon.remove(),4000);
-
-        },i*100);
+            
+            setTimeout(() => balloon.remove(), 5000);
+        }, i * 150);
+    }
+    
+    // RIGHT side balloons
+    for (let i = 0; i < balloonCount; i++) {
+        setTimeout(() => {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon balloon-right';
+            balloon.style.background = gradients[Math.floor(Math.random() * gradients.length)];
+            balloon.style.setProperty('--start-right', (30 + i * 30) + 'px');
+            balloon.style.animationDelay = (i * 1.15) + 's';
+            
+            // Random size variation
+            const size = 0.8 + Math.random() * 0.4;
+            balloon.style.transform = `scale(${size})`;
+            
+            document.body.appendChild(balloon);
+            
+            setTimeout(() => balloon.remove(), 5000);
+        }, i * 150);
     }
 }
-window.addEventListener('load',createBalloonPair);
+
+window.addEventListener('load', createBalloonPair);

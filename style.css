@@ -418,61 +418,84 @@ body {
         opacity: 0;
     }
 }
-.balloon{
+.balloon {
   position: fixed;
-  width: 60px;
-  height: 90px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  color: #e542bc;
-  bottom: -50px;
+  width: 50px;
+  height: 65px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 45% 45%;
+  bottom: -80px;
   z-index: 100;
+  box-shadow: 
+    inset -10px -10px 15px rgba(0, 0, 0, 0.1),
+    inset 10px 10px 15px rgba(255, 255, 255, 0.5);
 }
-.balloon::before{
+
+/* Balloon shine effect */
+.balloon::before {
   content: '';
   position: absolute;
-  bottom: -35px;
-  left:50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
+  bottom: 9px;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
+  filter: blur(2px);
+}
 
+/* Balloon string */
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  border-radius: 7px;
 }
-.balloon-left{
-  animation: balloonFlyLeft 3s ease-out forwards;
+
+.balloon-left {
+  animation: balloonFlyLeft 5s ease-out forwards;
 }
-.balloon-right{
-  animation: balloonFlyRight 3s ease-out forwards;
+
+.balloon-right {
+  animation: balloonFlyRight 5s ease-out forwards;
 }
+
 @keyframes balloonFlyLeft {
   0% {
     bottom: 0;
     left: var(--start-left);
     opacity: 1;
-    transform: translateX(0) rotate(0deg);
+    transform: translateX(0) rotate(0deg) scale(1);
   }
-  100%{
-    bottom: 120vh;
-    left: calc(var(--start-left)-200px);
+  50% {
+    transform: translateX(-10px) rotate(-5deg) scale(1.05);  /* ← Less sideways (was -30px) */
+  }
+  100% {
+    bottom: 150vh;  /* ← This makes them go UP */
+    left: calc(var(--start-left) - 60px);  /* ← Less left drift (was -150px) */
     opacity: 0;
-    transform: translateX(-50px) rotate(-20deg);
-
+    transform: translateX(-40px) rotate(-15deg) scale(0.9);  /* ← Less sideways */
   }
-  
 }
+
 @keyframes balloonFlyRight {
-  0%{
-    opacity: 1;
-    right: var(--start-right);
+  0% {
     bottom: 0;
-    transform: translateX(0) rotate(0deg);
+    right: var(--start-right);
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
   }
-  100%{
-    bottom: 120vh;
-    right: calc(var(--start-right)-200px);
+  50% {
+    transform: translateX(20px) rotate(5deg) scale(1.05);  /* ← Less sideways (was 30px) */
+  }
+  100% {
+    bottom: 150vh;  /* ← This makes them go UP */
+    right: calc(var(--start-right) - 50px);  /* ← Less right drift (was -150px) */
     opacity: 0;
-    transform: translateX(50px) rotate(20deg);
+    transform: translateX(30px) rotate(15deg) scale(0.9);  /* ← Less sideways */
   }
-  
 }
