@@ -133,15 +133,17 @@ function createBalloonPair() {
             balloon.style.background = gradients[Math.floor(Math.random() * gradients.length)];
             balloon.style.setProperty('--start-left', (30 + i * 30) + 'px');
             balloon.style.animationDelay = (i * 1.15) + 's';
-            
+            const knot = document.createElement('div');
+            knot.className = 'balloon-knot';
+            balloon.appendChild(knot);
             // Random size variation
             const size = 0.8 + Math.random() * 0.4;
             balloon.style.transform = `scale(${size})`;
             
             document.body.appendChild(balloon);
             
-            setTimeout(() => balloon.remove(), 7000);
-        }, i * 150);
+            setTimeout(() => balloon.remove(), 40000);
+        }, i * 200);
     }
     
     // RIGHT side balloons
@@ -152,15 +154,17 @@ function createBalloonPair() {
             balloon.style.background = gradients[Math.floor(Math.random() * gradients.length)];
             balloon.style.setProperty('--start-right', (30 + i * 30) + 'px');
             balloon.style.animationDelay = (i * 1.19) + 's';
-            
+            const knot = document.createElement('div');
+            knot.className = 'balloon-knot';
+            balloon.appendChild(knot);
             // Random size variation
             const size = 0.8 + Math.random() * 0.4;
             balloon.style.transform = `scale(${size})`;
             
             document.body.appendChild(balloon);
             
-            setTimeout(() => balloon.remove(), 7000);
-        }, i * 150);
+            setTimeout(() => balloon.remove(), 40000);
+        }, i * 200);
     }
 }
 
